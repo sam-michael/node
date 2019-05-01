@@ -9,5 +9,4 @@ app.get('/', (req, res) => {
 
 // If dev env we will use the default PORT = 5000 (process.env.PORT will be undefined)
 const PORT = process.env.PORT || 5000;
-console.log(PORT);
 app.listen(PORT);
