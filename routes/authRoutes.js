@@ -12,4 +12,16 @@ module.exports = app => {
     // This callback url will contains the code sended by google for the next request, the callback function the google strategy
     // witch allow us to access to ccessToken, refreshToken, profile of the user.
     app.get('/auth/google/callback', passport.authenticate('google'));
+
+    app.get('/api/logout', (req, res) => {
+        // re.logout() is attached automaticaly by passport on on HTPP request
+        req.logout();
+        // it should be undefined
+        res.send(req.user);
+    })
+
+    app.get('/api/current_user', (req, res) => {
+        // req.user() is attached automaticaly by passport on on HTPP request
+        res.send(req.user);
+    })
 };
